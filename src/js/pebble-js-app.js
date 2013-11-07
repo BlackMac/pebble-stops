@@ -1,14 +1,7 @@
 var allStops=[];
 var currentStop = 0;
 
-Pebble.addEventListener("appmessage",
-  function(e) {
-    currentStop += e.payload["1"];
-    showStop();
-  }
-);
-
-function showLocation(position) {
+function loadLocation(position) {
 	console.log(position.coords.latitude*1000000, position.coords.longitude*1000000);
 	var req = new XMLHttpRequest();
 	req.open('GET', 'http://m.bahn.de/bin/query.exe/dny?performLocating=2&tpl=stop2json&look_maxno=10&look_maxdist=1000&look_stopclass=1023&look_x=' + (position.coords.longitude*1000000) + '&look_y=' + (position.coords.latitude*1000000), true);
@@ -42,10 +35,17 @@ function showStop() {
 	}
 }
 
+Pebble.addEventListener("appmessage",
+  function(e) {
+    currentStop += e.payload["1"];
+    showStop();
+  }
+);
+
 
 Pebble.addEventListener("ready",
     function(e) {
-    	navigator.geolocation.getCurrentPosition(showLocation);
+    	navigator.geolocation.getCurrentPosition(loadLocation);
         console.log("Hello world! - Sent from your javascript application.");
     }
 );
