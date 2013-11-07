@@ -1,0 +1,25 @@
+{
+  "uuid": "18567cc2-478f-445f-8c1e-fe13f0d40aed",
+  "shortName": "Stops",
+  "longName": "Stops",
+  "capabilities": [ "location" ],
+  "companyName": "App Architect",
+  "versionCode": 1,
+  "versionLabel": "1.0.0",
+  "watchapp": {
+    "watchface": false
+  },
+  "appKeys": {
+    "dummy": 0
+  },
+  "resources": {
+    "media": [
+    {
+          "type": "png",
+          "name": "IMAGE_BUS_STOP",
+          "file": "stop.png",
+          "menuIcon": true
+    }
+    ]
+  }
+}
